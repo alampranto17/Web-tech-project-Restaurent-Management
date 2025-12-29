@@ -35,7 +35,7 @@ else {
         foreach ($users as $user) {
             if($user['email'] == $email){
                 if($user['password'] == $password){
-                    $_SESSION["isLogIn"] = true;
+                    $_SESSION["isLogin"]=true;
                     $_SESSION["user_email"] = $email;
                     $loginSuccess = true;
                     header("Location: ../../View/html/Dashboard.php");
