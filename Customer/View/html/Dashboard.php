@@ -13,7 +13,7 @@
             <div class="left-nav">
                 <img src="../Assest/ODUJEJ0.jpg" alt="My Restaurent">
                 <h1>
-                    Experience organic cuisine with fresh
+                    ECO FOOD
                 </h1>
             </div>
             <div class="right-nav">
