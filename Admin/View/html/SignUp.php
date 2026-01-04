@@ -9,7 +9,7 @@
 <body>
     <div class="signup-container">
         <h2>Create Account</h2>
-        <form action="../controller/SignUpProcess.php" method="POST">
+        <form action="../../Controller/php/SignUpProcess.php" method="POST" onsubmit="return signupValidation()">
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required>
@@ -39,6 +39,20 @@
                 <?php endif; ?>
             </div>
             
+            <div class="form-group">
+                <label>Select Role</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="role" value="customer" required>
+                        Customer
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="role" value="employee" required>
+                        Employee
+                    </label>
+                </div>
+            </div>
+            
             <button type="submit" name="signup" class="btn-signup">Sign Up</button>
             
             <div class="login-link">
@@ -46,5 +60,7 @@
             </div>
         </form>
     </div>
+
+    <script src="../../Controller/js/ValidationSignup.js"></script>
 </body>
 </html>

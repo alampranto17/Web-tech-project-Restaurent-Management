@@ -16,7 +16,7 @@ session_start();
             <?php if(isset($_SESSION['signupSuccess'])): ?>
                 <div class="success-message"><?php echo $_SESSION['signupSuccess']; unset($_SESSION['signupSuccess']); ?></div>
             <?php endif; ?>
-            <form action="../../Controller/php/LoginProcess.php" method="POST" onsubmit="return validation()">
+            <form action="../../Controller/php/LoginProcess.php" method="POST" onsubmit="validation(event)">
                <div class='heading-container'>
                  <h2>Welcome</h2>
                 <p>Sign in to your dashboard</p>
