@@ -1,6 +1,7 @@
 <?php
-require_once("../../Model/OrderModel.php");
-$orders = $model->todayOrders();
+require_once("../../Model/mydb.php");
+
+
 ?>
 
 <h2>Today’s Orders</h2>
@@ -12,7 +13,7 @@ $orders = $model->todayOrders();
 <tr>
   <td><?= $o['id'] ?></td>
   <td><?= $o['total'] ?></td>
-  <td><?= $o['created_at'] ?></td>
+  <td><?= $o['order_date'] ?></td>
 </tr>
 <?php } ?>
 </table>

@@ -11,7 +11,7 @@
 <body>
     <main class="main">
         <section class="login-Container">
-            <form action="../../Controller/php/login.php" method="POST" onsubmit="return validation()">
+            <form action="../../Controller/php/EmployeeController.php" method="POST" onsubmit="return validation()">
                <div class='heading-container'>
                  <h2>Welcome</h2>
                 <p>Sign in to your dashboard</p>

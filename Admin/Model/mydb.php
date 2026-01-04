@@ -1,5 +1,4 @@
 <?php
-session_start();
 function connection()
 {
     $db_host="localhost";
@@ -18,7 +17,7 @@ function connection()
     return $connection ;
 }
 
-function signup(){
+function login(){
     $con=connection();
     $sql="SELECT * FROM users";
     $users=[];
@@ -31,5 +30,41 @@ function signup(){
     mysqli_close($con);
     return $users;
 }
+
+
+function signup($name, $email, $password, $role)
+{
+    $con = connection();  
+    $created_at = date("Y-m-d H:i:s");
+
+    $sql = "INSERT INTO users (name, email, password, role, created_at)
+            VALUES ('$name', '$email', '$password', '$role', '$created_at')";
+
+    if (mysqli_query($con, $sql)) {
+        return true;   
+    } else {
+        return false;  
+    }
+
+     mysqli_close($con);
+}
+
+function getAllFoods(){
+    $con = connection();
+
+     $con=connection();
+    $sql="SELECT * FROM `menu`";
+    $manus=[];
+    $result=mysqli_query($con,$sql);
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($result)){
+            $manus[] = $row;
+        }
+    }
+    mysqli_close($con);
+    return $manus;
+
+}
+
 
 ?>

@@ -2,7 +2,7 @@
 
 <h2>Cart</h2>
 
-<form method="post" action="../../Controller/OrderController.php">
+<form method="post" action="../../Controller/php/OrderController.php">
 <table border="1">
 <tr><th>Menu ID</th><th>Qty</th></tr>
 
