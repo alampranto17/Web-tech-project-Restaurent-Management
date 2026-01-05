@@ -28,32 +28,34 @@ if(count($errors)>0){
 
 }
 else {
-    $users = signup();
-    $loginSuccess = false;
-    
-    if(!empty($users)){
-        foreach ($users as $user) {
-            if($user['email'] == $email){
-                if($user['password'] == $password){
-                    $_SESSION["isLogin"]=true;
+    if(isset($_POST["login"]))
+    {
+        // Fetch users (function defined in mydb.php)
+        $users = login();
+        $loginSuccess = false;
+        
+        if(!empty($users)){
+            foreach ($users as $user) {
+                if($user['email'] == $email && $user['password'] == $password){
                     $_SESSION["user_email"] = $email;
+                    $_SESSION['last_activity'] = time();
+                    $_SESSION["isLogin"] = true;
                     $loginSuccess = true;
+                    // Redirect all successful logins to Dashboard for now
                     header("Location: ../../View/html/Dashboard.php");
                     exit();
                 }
             }
         }
+        
+        if(!$loginSuccess){
+            $_SESSION["loginErr"] = "Invalid email or password";
+            header("Location: ../../View/html/login.php");
+            exit();
+        }
     }
     
-    if(!$loginSuccess){
-        $_SESSION["loginErr"] = "Invalid email or password";
-        header("Location: ../../View/html/login.php");
-        exit();
-    }
 }
-
-
-
 
 
 
