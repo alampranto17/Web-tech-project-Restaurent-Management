@@ -42,7 +42,7 @@ else {
                     $_SESSION["isLogin"] = true;
                     $loginSuccess = true;
                     // Redirect all successful logins to Dashboard for now
-                    header("Location: ../../View/html/Dashboard.php");
+                    header("Location: ../../View/html/dashboard.php");
                     exit();
                 }
             }

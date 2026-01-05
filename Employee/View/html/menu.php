@@ -24,7 +24,7 @@ include "../../Controller/php/MenuController.php";
 <div class="nav-buttons">
     <a href="dashboard.php">Dashboard</a>
     <a href="cart.php">Cart</a>
-    <a href="orders_today.php">Today’s Orders</a>
+      <a href="">Logout</a>
 </div>
 
 
