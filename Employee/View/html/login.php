@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,10 @@
 <body>
     <main class="main">
         <section class="login-Container">
-            <form action="../../Controller/php/login.php" method="POST" onsubmit="return validation()">
+            <?php if(isset($_SESSION['signupSuccess'])): ?>
+                <div class="success-message"><?php echo $_SESSION['signupSuccess']; unset($_SESSION['signupSuccess']); ?></div>
+            <?php endif; ?>
+            <form action="../../Controller/php/LoginProcess.php" method="POST" onsubmit="validation(event)">
                <div class='heading-container'>
                  <h2>Welcome</h2>
                 <p>Sign in to your dashboard</p>
@@ -22,18 +27,36 @@
                         <td><label for="email" class="email-lb">Email</label></td>
                         <td><input type="text" name="email" id="email"></td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <?php if(isset($_SESSION['emailErr'])): ?>
+                                <p class="error"><?php echo $_SESSION['emailErr']; unset($_SESSION['emailErr']); ?></p>
+                            <?php else: ?>
+                                <p></p>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
                      <tr>
                         <td><label for="password">Password</label></td>
                         <td><input type="password" name="password" id="password"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <?php if(isset($_SESSION['passwordErr'])): ?>
+                                <p class="error"><?php echo $_SESSION['passwordErr']; unset($_SESSION['passwordErr']); ?></p>
+                            <?php else: ?>
+                                <p></p>
+                            <?php endif; ?>
+                        </td>
                     </tr>
 
                 </table>
                    <div class='btn-container'>
 
-                     <button type="submit" id="btn-login" class='btn'>login</button>
+                     <button type="submit" name="login" id="btn-login" class='btn'>login</button>
                     </div>
                      <div class="login-link">
-                Already have an account? <a href="SignUp.php">SignUp here</a>
+                Don't have an account? <a href="SignUp.php">SignUp here</a>
             </div>
 
             </form>

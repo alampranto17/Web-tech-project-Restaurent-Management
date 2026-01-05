@@ -24,7 +24,7 @@
   <a href="menu.php">Menu</a>
   <a href="cart.php">Cart</a>
   <a href="orders_today.php">Today’s Orders</a>
-  <a href="../../Controller/EmployeeController.php?logout=1">Logout</a>
+  <a href="">Logout</a>
 </div>
 
 <div class="hero">
