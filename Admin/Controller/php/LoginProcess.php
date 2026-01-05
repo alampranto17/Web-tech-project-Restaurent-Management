@@ -28,8 +28,8 @@ if(count($errors)>0){
 
 }
 else {
-    if(isset($_POST["login"]))
-    {
+   
+    
         // Fetch users (function defined in mydb.php)
         $users = login();
         $loginSuccess = false;
@@ -46,7 +46,7 @@ else {
                     exit();
                 }
             }
-        }
+        
         
         if(!$loginSuccess){
             $_SESSION["loginErr"] = "Invalid email or password";
