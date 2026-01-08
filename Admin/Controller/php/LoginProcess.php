@@ -41,8 +41,14 @@ else {
                     $_SESSION['last_activity'] = time();
                     $_SESSION["isLogin"] = true;
                     $loginSuccess = true;
-                    // Redirect all successful logins to Dashboard for now
-                    header("Location: ../../View/html/Dashboard.php");
+                    If($user["role"]=="admin")
+                    {
+                        header("Location: ../../View/html/Dashboard.php");
+                    }
+                    else if ($user["role"]== "employee")
+                    {
+                        header("Location: ../../../Employee/View/html/dashboard.php");
+                    }
                     exit();
                 }
             }

@@ -1,52 +1,67 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Management</title>
- <link rel="shortcut icon" href="Admin/View/Assest/ODUJEJ0.jpg" type="image/x-icon">
- <link rel="stylesheet" href="Admin/View/CSS/index.css">
+    <title>Log-In</title>
+    <link rel="shortcut icon" href="Admin/View/Assest/ODUJEJ0.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="Admin/View/CSS/login.css">
 </head>
 <body>
-    <header>
-        <Section class = "Nav">
-            <div class="left-nav">
-                <img src="Admin/View/Assest/ODUJEJ0.jpg" alt="My Restaurent">
-                <h1>
-                    Discover, Buy And Sells Vehicles
-                </h1>
+    <main class="main">
+        <section class="login-Container">
+            <?php if(isset($_SESSION['signupSuccess'])): ?>
+                <div class="success-message"><?php echo $_SESSION['signupSuccess']; unset($_SESSION['signupSuccess']); ?></div>
+            <?php endif; ?>
+            <form action="Admin/Controller/php/LoginProcess.php" method="POST" onsubmit="validation(event)">
+               <div class='heading-container'>
+                 <h2>Welcome</h2>
+                <p>Sign in to your dashboard</p>
+               </div>
+
+                <table>
+                    <tr>
+                        <td><label for="email" class="email-lb">Email</label></td>
+                        <td><input type="text" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <?php if(isset($_SESSION['emailErr'])): ?>
+                                <p class="error"><?php echo $_SESSION['emailErr']; unset($_SESSION['emailErr']); ?></p>
+                            <?php else: ?>
+                                <p></p>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td><label for="password">Password</label></td>
+                        <td><input type="password" name="password" id="password"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <?php if(isset($_SESSION['passwordErr'])): ?>
+                                <p class="error"><?php echo $_SESSION['passwordErr']; unset($_SESSION['passwordErr']); ?></p>
+                            <?php else: ?>
+                                <p></p>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+
+                </table>
+                   <div class='btn-container'>
+
+                     <button type="submit" name="login" id="btn-login" class='btn'>login</button>
+                    </div>
+                     <div class="login-link">
+                Don't have an account? <a href="Admin/View/html/SignUp.php">SignUp here</a>
             </div>
-            <div class="right-nav">
-                <ul>
-                    <li><a href="Admin/View/html/login.php">Log-in</a></li>
-                </ul>
-            </div>
-            <hr>
-        </Section>
-    </header>
-    <main>
-        
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Welcome to Auto fleet</h1>
-                <p class="hero-subtitle">Experience the finest organic cuisine with fresh, locally-sourced ingredients</p>
-                <div class="hero-buttons">
-                    <a href="#menu" class="btn btn-primary">View Cars</a>
-                    <a href="#reservation" class="btn btn-secondary">Make Reservation</a>
-                </div>
-            </div>
+
+            </form>
         </section>
     </main>
-    <footer class="footer">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p> Bashundhara,Dhaka-1200</p>
-                <p>0140881088</p>
-                <p>alampranto!@gmail.com</p>
-            </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 ECO Food. All rights reserved.</p>
-        </div>
-    </footer>
+    <script src="../../Controller/js/LoginValidation.js"></script>
 </body>
 </html>

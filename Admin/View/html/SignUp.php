@@ -56,7 +56,7 @@
             <button type="submit" name="signup" class="btn-signup">Sign Up</button>
             
             <div class="login-link">
-                Already have an account? <a href="login.php">Login here</a>
+                Already have an account? <a href="../../../Index.php">Login here</a>
             </div>
         </form>
     </div>
