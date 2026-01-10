@@ -1,9 +1,4 @@
-console.log("LoginValidation.js loaded");
-
-function validation(event){
-    // Stop the browser's default submit so we control when to post
-    event.preventDefault();
-    console.log("validation function called");
+function validation(){
     const gmail = document.getElementById("email");
     const password = document.getElementById("password");
     const gmailValue = gmail.value.trim();
@@ -23,8 +18,6 @@ function validation(event){
         return false;
     }
 
-    // All good: submit the form manually without reloading on validation failure
-    event.target.submit();
     return true;
 }
 

@@ -3,7 +3,7 @@ session_start();
 include "../../Model/mydb.php";
 $isLoggedIn = $_SESSION["isLogin"] ?? false;
 if (!$isLoggedIn) {
-	header("Location: login.php");
+	header("Location: ../../../Index.php");
 }
 
 ?>
@@ -18,7 +18,7 @@ if (!$isLoggedIn) {
 <body>
 	<nav class="navbar">
 		<div class="navbar-container">
-			<div class="navbar-brand">🍽️ Restaurant Admin</div>
+			<div class="navbar-brand">Restaurant Admin</div>
 			<ul class="nav-menu">
 				<li class="nav-item"><a href="Dashboard.php" class="nav-link">Home</a></li>
 				<li class="nav-item"><a href="foodlist.php" class="nav-link">Food List</a></li>
@@ -35,7 +35,7 @@ if (!$isLoggedIn) {
 		<div class="page-header">
 			<h1 class="page-title">User List</h1>
 			<div class="action-buttons">
-				<button class="btn btn-add" onclick="alert('Add user - link form');">Add User</button>
+				<a href="AddNewUser.php"><button class="btn btn-add">Add User</button></a>
 			</div>
 		</div>
 
@@ -59,10 +59,10 @@ $sl = 1;
 foreach ($users as $row) {
 ?>
     <tr>
-        <td>#<?php echo $row["user_id"]; ?></td>
+        <td><?php echo $row["user_id"]; ?></td>
         <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['email']; ?></td>
-        <td>$<?php echo $row['password']; ?></td>
+        <td><?php echo $row['password']; ?></td>
         <td><?php echo $row['role']; ?></td>
         <td>
             <div class="action-cell">

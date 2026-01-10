@@ -56,7 +56,7 @@ else {
         
         if(!$loginSuccess){
             $_SESSION["loginErr"] = "Invalid email or password";
-            header("Location: ../../View/html/login.php");
+            header("Location: ../../../Index.php");
             exit();
         }
     }

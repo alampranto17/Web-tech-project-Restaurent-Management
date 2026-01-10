@@ -84,82 +84,99 @@
             font-size: 0.9rem;
         }
 
-        
-        .main-content {
-            max-width: 1400px;
+        /* Form Container */
+        main {
+            padding: 2rem;
+            max-width: 600px;
             margin: 2rem auto;
-            padding: 0 2rem;
         }
 
-        .welcome-section {
+        .form-container {
             background: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .welcome-section h1 {
+        .form-container h2 {
             color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
             margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
         }
 
-        .welcome-section p {
-            color: #666;
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
 
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color: #667eea;
         }
 
-        .stat-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Radio Buttons */
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-      
-
-        .stat-box.expenses {
-            border-left-color: #ff6b6b;
+        .radio-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
         }
 
-        .stat-box.sales {
-            border-left-color: #51cf66;
+        .radio-label input[type="radio"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+        .radio-label span {
+            color: #333;
         }
 
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+        /* Buttons */
+        .submit-btn,
+        .reset-btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
         }
 
-        .stat-box.expenses .stat-value {
-            color: #ff6b6b;
+        .submit-btn {
+            background-color: #667eea;
+            color: white;
         }
 
-        .stat-box.sales .stat-value {
-            color: #51cf66;
-        }
-
-        .stat-change {
-            font-size: 0.85rem;
-            color: #666;
+        .reset-btn {
+            background-color: #ddd;
+            color: #333;
         }
 
        

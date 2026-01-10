@@ -3,7 +3,7 @@ include "../../Model/mydb.php";
 session_start();
 $isLoggedIn= $_SESSION["isLogin"]?? false;
 if(!$isLoggedIn){
-    header("Location: login.php");
+    header("Location: ../../../Index.php");
 }
 
 ?>

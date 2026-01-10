@@ -3,7 +3,7 @@ session_start();
 
 $isLoggedIn= $_SESSION["isLogin"]?? false;
 if(!$isLoggedIn){
-    header("Location: login.php");
+    header("Location: ../../../Index.php");
 }
 
 ?>
@@ -16,12 +16,13 @@ if(!$isLoggedIn){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="shortcut icon" href="../Assest/ODUJEJ0.jpg" type="image/x-icon">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="navbar-brand">🍽️ Restaurant Admin</div>
+            <div class="navbar-brand">Restaurant Admin</div>
             
             <ul class="nav-menu">
                 <li class="nav-item">

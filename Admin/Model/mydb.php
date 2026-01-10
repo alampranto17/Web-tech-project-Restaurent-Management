@@ -40,13 +40,22 @@ function signup($name, $email, $password, $role)
     $sql = "INSERT INTO users (name, email, password, role, created_at)
             VALUES ('$name', '$email', '$password', '$role', '$created_at')";
 
-    if (mysqli_query($con, $sql)) {
-        return true;   
-    } else {
-        return false;  
+    try {
+        if (mysqli_query($con, $sql)) {
+            mysqli_close($con);
+            return true;   
+        } else {
+            $error = mysqli_error($con);
+            mysqli_close($con);
+            if (strpos($error, 'Duplicate entry') !== false) {
+                return "duplicate";
+            }
+            return false;  
+        }
+    } catch (Exception $e) {
+        mysqli_close($con);
+        return false;
     }
-
-     mysqli_close($con);
 }
 
 function getAllFoods(){
