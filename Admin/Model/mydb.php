@@ -59,7 +59,6 @@ function signup($name, $email, $password, $role)
 }
 
 function getAllFoods(){
-    $con = connection();
 
      $con=connection();
     $sql="SELECT * FROM `menu`";
@@ -74,6 +73,20 @@ function getAllFoods(){
     return $manus;
 
 }
+
+function SearchEmail($email)
+    {
+         $con=connection();
+    $sql="SELECT COUNT(*) FROM users WHERE email = '$email';";
+    $manus=[];
+    $result=mysqli_query($con,$sql);
+    if(mysqli_num_rows($result) > 0){
+        return true;
+    }
+    mysqli_close($con);
+    return false;
+    }
+
 
 
 ?>

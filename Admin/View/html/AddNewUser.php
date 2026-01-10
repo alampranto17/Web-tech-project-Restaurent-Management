@@ -48,8 +48,8 @@ if(!$isLoggedIn){
 <main>
     <div class="form-container">
         <h2>Add New User</h2>
-        <form action="../../Controller/php/UserValidation.php" method="post" enctype="multipart/form-data" id="UserFrom" onsubmit="return validationUser()">
-            
+        <!-- <form action="../../Controller/php/UserValidation.php" method="post" enctype="multipart/form-data" id="UserFrom" onsubmit="return validationUser()"> -->
+            <form action="" method="" enctype="multipart/form-data" id="UserFrom">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter user name">
@@ -57,7 +57,8 @@ if(!$isLoggedIn){
 
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email"  placeholder="Enter email address">
+                <input type="email" id="email" name="email"  placeholder="Enter email address" onkeyup="checkEmailExists(this.value)">
+                <p id="emailErr"></p>
             </div>
 
             <div class="form-group">
@@ -84,13 +85,14 @@ if(!$isLoggedIn){
             </div>
 
             <div class="form-group">
-                <button type="submit" name="submit" class="submit-btn">Add User</button>
+                <button type="submit" name="submit" id="submitUser" class="submit-btn">Add User</button>
                 <button type="reset" class="reset-btn" onclick="reset()">Reset</button>
             </div>
             
         </form>
     </div>
 </main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="../../Controller/js/UserValidation.js"></script>
 </body>
 </html>
