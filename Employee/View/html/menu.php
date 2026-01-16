@@ -25,7 +25,7 @@ include "../../Model/mydb.php";
 <div class="nav-buttons">
     <a href="dashboard.php">Dashboard</a>
     <a href="cart.php">Cart</a>
-    <a href="../../Controller/php/LogoutController.php">Logout</a>
+    <a href="../../Controller/php/logout.php">Logout</a>
 </div>
 
 <form method="post" action="../../Controller/php/CartController.php">
