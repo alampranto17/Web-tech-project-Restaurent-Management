@@ -1,9 +1,11 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['emp_id'])) {
-//     header("Location: login.php");
-//     exit;
-// }
+session_start();
+
+$isLoggedIn= $_SESSION["isLogin"]?? false;
+if(!$isLoggedIn){
+    header("Location: ../../../Index.php");
+}
+}
 
 include "../../Controller/php/MenuController.php";
 ?>

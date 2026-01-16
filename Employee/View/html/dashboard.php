@@ -1,7 +1,11 @@
 
 <?php
-//session_start();
-//if (!isset($_SESSION['emp_id'])) header("Location: login.php");
+session_start();
+
+$isLoggedIn= $_SESSION["isLogin"]?? false;
+if(!$isLoggedIn){
+    header("Location: ../../../Index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +28,7 @@
   <a href="menu.php">Menu</a>
   <a href="cart.php">Cart</a>
   <a href="orders_today.php">Today’s Orders</a>
-  <a href="">Logout</a>
+  <a href="../../Controller/php/logout.php">Logout</a>
 </div>
 
 <div class="hero">
