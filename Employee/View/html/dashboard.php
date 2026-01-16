@@ -21,7 +21,7 @@ if(!$isLoggedIn){
       <h2>Dashboard</h2>
   </div>
 
-  <span>Welcome, <?php echo $_SESSION['emp_name']; ?></span>
+  <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Employee'); ?></span>
 </div>
 
 <div class="nav-buttons">

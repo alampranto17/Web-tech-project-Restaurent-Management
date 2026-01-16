@@ -51,19 +51,16 @@ function signup($name, $email, $password, $role)
 
 function getAllFoods(){
     $con = connection();
-
-     $con=connection();
-    $sql="SELECT * FROM `menu`";
-    $manus=[];
-    $result=mysqli_query($con,$sql);
+    $sql = "SELECT * FROM menu";
+    $foods = [];
+    $result = mysqli_query($con, $sql);
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
-            $manus[] = $row;
+            $foods[] = $row;
         }
     }
     mysqli_close($con);
-    return $manus;
-
+    return $foods;
 }
 
 

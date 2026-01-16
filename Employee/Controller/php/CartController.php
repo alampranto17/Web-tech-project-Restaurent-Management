@@ -19,8 +19,12 @@ if (isset($_POST['add_to_cart'])) {
 
         $qty = $_POST['qty'][$menu_id];
 
-        // get food info from DB
-        $food = getAllFoods($menu_id);
+        // Get food info from DB - query directly
+        $con = connection();
+        $sql = "SELECT * FROM menu WHERE menu_id = $menu_id";
+        $result = mysqli_query($con, $sql);
+        $food = mysqli_fetch_assoc($result);
+        mysqli_close($con);
 
         if (!$food) {
             continue;
@@ -32,9 +36,9 @@ if (isset($_POST['add_to_cart'])) {
         } else {
             $_SESSION['cart'][$menu_id] = [
                 'menu_id' => $food['menu_id'],
-                'name'    => $food['item_name'],
-                'price'   => $food['price'],
-                'qty'     => $qty
+                'item_name' => $food['item_name'],
+                'price' => $food['price'],
+                'qty' => $qty
             ];
         }
     }

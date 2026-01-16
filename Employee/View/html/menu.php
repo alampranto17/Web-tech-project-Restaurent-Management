@@ -4,10 +4,9 @@ session_start();
 $isLoggedIn= $_SESSION["isLogin"]?? false;
 if(!$isLoggedIn){
     header("Location: ../../../Index.php");
-}
-}
-
-include "../../Controller/php/MenuController.php";
+    }
+    
+include "../../Model/mydb.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,64 +19,54 @@ include "../../Controller/php/MenuController.php";
 
 <div class="topbar">
     <h2>Food Menu</h2>
-    <span>Welcome, <?php echo $_SESSION['emp_name']; ?></span>
+    <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Employee'); ?></span>
 </div>
 
 <div class="nav-buttons">
     <a href="dashboard.php">Dashboard</a>
     <a href="cart.php">Cart</a>
-      <a href="">Logout</a>
+    <a href="../../Controller/php/LogoutController.php">Logout</a>
 </div>
-
 
 <form method="post" action="../../Controller/php/CartController.php">
 
-<table>
+<table border="1">
     <tr>
         <th>Select</th>
-        <th>ID</th>
+        <th>Food ID</th>
         <th>Food Name</th>
         <th>Category</th>
-        <th>Price (BDT)</th>
-        <th>Available</th>
-        <th>Qty</th>
+        <th>Price</th>
+        <th>Available Quantity</th>
+        <th>Order Quantity</th>
     </tr>
+<?php
+$foods = getAllFoods();
 
-    <?php if (!empty($menus)) { ?>
-        <?php foreach ($menus as $food) { ?>
-        <tr>
-     
-            <td>
-                <input type="checkbox" name="menu_id[]" value="<?php echo $food['menu_id']; ?>">
-            </td>
-
-            <td><?php echo $food['menu_id']; ?></td>
-            <td><?php echo $food['item_name']; ?></td>
-            <td><?php echo $food['category']; ?></td>
-            <td><?php echo $food['price']; ?></td>
-            <td><?php echo $food['quantity']; ?></td>
-
-          
-            <td>
-                <input type="number"
-                       name="qty[<?php echo $food['menu_id']; ?>]"
-                       value="1"
-                       min="1"
-                       max="<?php echo $food['quantity']; ?>">
-            </td>
-        </tr>
-        <?php } ?>
-    <?php } else { ?>
-        <tr>
-            <td colspan="7">No menu items found</td>
-        </tr>
-    <?php } ?>
+foreach ($foods as $row) {
+?>
+    <tr>
+        <td>
+            <input type="checkbox" name="menu_id[]" value="<?php echo $row['menu_id']; ?>">
+        </td>
+        <td><?php echo $row['menu_id']; ?></td>
+        <td><?php echo $row['item_name']; ?></td>
+        <td><?php echo $row['category']; ?></td>
+        <td><?php echo $row['price']; ?></td>
+        <td><?php echo $row['quantity']; ?></td>
+        <td>
+            <input type="number" name="qty[<?php echo $row['menu_id']; ?>]" value="1" min="1" max="<?php echo $row['quantity']; ?>">
+        </td>
+    </tr>
+<?php
+}
+?>
 </table>
 
 <br>
-<button type="submit" name="add_to_cart"
-        style="display:block; margin:20px auto; padding:10px 25px;">Add to Cart</button>
-
+<div style="text-align:center;">
+<button type="submit" name="add_to_cart">Add to Cart</button>
+</div>
 
 </form>
 
