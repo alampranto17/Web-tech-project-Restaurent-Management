@@ -25,7 +25,7 @@
 <header>
     <section class="Nav">
         <div class="left-nav">
-            <img src="../Assests/ODUJEJ0.jpg" alt="Logo">
+            <img src="../Assest/ODUJEJ0.jpg" alt="Logo">
             <h1>ECO Food</h1>
         </div>
 
