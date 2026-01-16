@@ -77,12 +77,13 @@ function getAllFoods(){
 function SearchEmail($email)
     {
         $con=connection();
-    $sql="SELECT COUNT(*) FROM users WHERE email = '$email';";
+    $sql="SELECT COUNT(*) as count FROM users WHERE email = '$email';";
     $result=mysqli_query($con,$sql);
-    if(mysqli_num_rows($result) > 0){
+    $row = mysqli_fetch_assoc($result);
+    mysqli_close($con);
+    if($row['count'] > 0){
         return true;
     }
-    mysqli_close($con);
     return false;
     }
 
