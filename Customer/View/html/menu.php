@@ -14,6 +14,7 @@ include "../../Model/mydb.php";
 <head>
     <title>Menu</title>
     <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
 </head>
 <body>
 
@@ -50,7 +51,7 @@ if(is_array($foods) && count($foods) > 0) {
                 <td><?php echo htmlspecialchars($row['menu_id']); ?></td>
                 <td><?php echo htmlspecialchars($row['item_name']); ?></td>
                 <td><?php echo htmlspecialchars($row['category']); ?></td>
-                <td>Rs. <?php echo htmlspecialchars($row['price']); ?></td>
+                <td><?php echo htmlspecialchars($row['price']); ?></td>
                 <td><?php echo htmlspecialchars($row['quantity']); ?></td>
             </tr>
 <?php

@@ -28,4 +28,19 @@ function getAllFoods(){
     return $foods;
 }
 
+function addReservation($date, $time, $persons, $payment){
+    $con = connection();
+    $sql = "INSERT INTO reserve (`Reservation Date`, `Reservation Time`, `Number of Persons`, `Advance Payment (BDT)`) 
+            VALUES ('$date', '$time', '$persons', '$payment')";
+    
+    if(mysqli_query($con, $sql)){
+        mysqli_close($con);
+        return true;
+    } else {
+        echo "Error: " . mysqli_error($con);
+        mysqli_close($con);
+        return false;
+    }
+}
+
 ?>
