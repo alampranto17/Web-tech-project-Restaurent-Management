@@ -1,3 +1,14 @@
+<?php
+// session_start();
+
+// $isLoggedIn= $_SESSION["isLogin"]?? false;
+// if(!$isLoggedIn){
+//     header("Location: ../../../Index.php");
+//     }
+    
+include "../../Model/mydb.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +29,7 @@
             </div>
             <div class="right-nav">
                 <ul>
-                    <li><a href="Admin/View/html/login.php">Log-in</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
             </div>
             <hr>
@@ -44,7 +55,7 @@
         <div class="footer-section">
             <h3>Contact Us</h3>
             <p>Bashundhara, Dhaka-1200</p>
-            <p>0140881088</p>
+            <p>01xxxxxxx</p>
             <p>aabc@gmail.com</p>
         </div>
         <div class="footer-bottom">

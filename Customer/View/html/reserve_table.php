@@ -1,8 +1,12 @@
 <?php
-//session_start();
-//if (!isset($_SESSION['cust_id'])) {
-    //header("Location: login.php");
-//}
+// session_start();
+
+// $isLoggedIn= $_SESSION["isLogin"]?? false;
+// if(!$isLoggedIn){
+//     header("Location: ../../../Index.php");
+//     }
+    
+include "../../Model/mydb.php";
 ?>
 
 <!DOCTYPE html>
