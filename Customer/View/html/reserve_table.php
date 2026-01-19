@@ -1,10 +1,10 @@
 <?php
-// session_start();
+session_start();
 
-// $isLoggedIn= $_SESSION["isLogin"]?? false;
-// if(!$isLoggedIn){
-//     header("Location: ../../../Index.php");
-//     }
+$isLoggedIn= $_SESSION["isLogin"]?? false;
+if(!$isLoggedIn){
+    header("Location: ../../../Index.php");
+    }
     
 include "../../Model/mydb.php";
 ?>
