@@ -46,27 +46,27 @@ $food = [
 			</div>
 
 			<form id="editFoodForm" action="" method="post">
-				<input type="hidden" name="food_id" id="foodId" value="<?= htmlspecialchars($food['food_id']) ?>">
+				<input type="hidden" name="food_id" id="foodId">
 
 				<div class="inputFieldGroup">
 					<label for="food_name">Food Name *</label>
-					<input type="text" id="food_name" name="food_name" value="<?= htmlspecialchars($food['item_name']) ?>" placeholder="Enter food name">
+					<input type="text" id="food_name" name="food_name" placeholder="Enter food name">
 				</div>
 
 				<div class="inputFieldGroup">
 					<label for="food_category">Category *</label>
-					<input type="text" id="food_category" name="category" value="<?= htmlspecialchars($food['category']) ?>" placeholder="Enter category">
+					<input type="text" id="food_category" name="category"  placeholder="Enter category">
 				</div>
 
 				<div class="formRow">
 					<div class="inputFieldGroup formGroupHalf">
 						<label for="price">Price (tk) *</label>
-						<input type="number" id="price" name="price" min="0" step="0.01" value="<?= htmlspecialchars($food['price']) ?>" placeholder="Enter price">
+						<input type="number" id="price" name="price" min="0" step="0.01"  placeholder="Enter price">
 					</div>
 
 					<div class="inputFieldGroup formGroupHalf">
 						<label for="quantity">Quantity *</label>
-						<input type="number" id="quantity" name="quantity" min="0" step="1" value="<?= htmlspecialchars($food['quantity']) ?>" placeholder="Enter quantity">
+						<input type="number" id="quantity" name="quantity" min="0" step="1" placeholder="Enter quantity">
 					</div>
 				</div>
 
@@ -79,7 +79,7 @@ $food = [
 				</div>
 
 				<div class="button-group">
-					<button type="submit" class="submitButton">Update Food</button>
+					<button type="submit" id="submit" class="submitButton">Update Food</button>
 					<a href="Foodlist.php" class="cancelButton">Cancel</a>
 				</div>
 			</form>
@@ -87,6 +87,6 @@ $food = [
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="../../Controller/js/Addfood.js"></script>
+	<script src="../../Controller/js/EditFood.js"></script>
 </body>
 </html>

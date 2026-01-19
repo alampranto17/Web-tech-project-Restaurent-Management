@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "../../Model/mydb.php";
 $isLoggedIn= $_SESSION["isLogin"]?? false;
 if(!$isLoggedIn){
     header("Location: ../../../Index.php");
@@ -34,9 +34,6 @@ if(!$isLoggedIn){
                 <li class="nav-item">
                     <a href="userlist.php" class="nav-link">User List</a>
                 </li>
-                <li class="nav-item">
-                    <a href="saleslist.php" class="nav-link">Sales List</a>
-                </li>
                 <li class="nav-divider"></li>
                 <li class="nav-item">
                     <span class="user-info">Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Admin'); ?></span>
@@ -57,10 +54,19 @@ if(!$isLoggedIn){
 
         <!-- Stats Grid -->
         <div class="stats-grid">
-            <!-- Total Sales Box -->
             <div class="stat-box sales">
-                <div class="stat-label">Total Sales</div>
-                <div class="stat-value">12,450 tk</div>
+                <div class="stat-label">User</div>
+                <div class="stat-value"><?php
+                    $users=login();
+                    echo count($users);
+                ?></div>
+            </div>
+            <div class="stat-box sales">
+                <div class="stat-label">Total food</div>
+                <div class="stat-value"><?php
+                    $food=getAllFoods();
+                    echo count($food);
+                ?></div>
             </div>
         </div>
     </div>

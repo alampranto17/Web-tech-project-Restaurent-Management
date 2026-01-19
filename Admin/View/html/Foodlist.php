@@ -31,9 +31,6 @@ if(!$isLoggedIn){
                 <li class="nav-item">
                     <a href="userlist.php" class="nav-link">User List</a>
                 </li>
-                <li class="nav-item">
-                    <a href="saleslist.php" class="nav-link">Sales List</a>
-                </li>
                 <li class="nav-divider"></li>
                 <li class="nav-item">
                     <span class="user-info">Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Admin'); ?></span>
@@ -83,12 +80,19 @@ foreach ($foods as $row) {
         <td>
             <div class="action-cell">
                 <button class="btn btn-edit-row"
-                        onclick="editFood(<?php echo $row['menu_id']; ?>)">
+                        onclick="editFood(<?php echo htmlspecialchars(json_encode([
+                            'menu_id' => $row['menu_id'],
+                            'item_name' => $row['item_name'],
+                            'category' => $row['category'],
+                            'price' => $row['price'],
+                            'status' => $row['status'],
+                            'quantity'=> $row['quantity'],
+                        ])); ?>)">
                     Edit
                 </button>
 
                 <button class="btn btn-delete"
-                        onclick="deleteFood(<?php echo $row['menu_id']; ?>)">
+                        onclick="deleteFood(<?php echo htmlspecialchars($row['menu_id']);?>)">
                     Delete
                 </button>
             </div>
@@ -103,25 +107,7 @@ foreach ($foods as $row) {
             </table>
         </div>
     </div>
-
-    <script>
-        function addFood() {
-            alert('Add Food - Redirect to add form');
-        }
-
-        function editSelectedFood() {
-            alert('Select a food to edit');
-        }
-
-        function editFood(foodId) {
-            alert('Edit food ID: ' + foodId);
-        }
-
-        function deleteFood(foodId) {
-            if (confirm('Delete food ID ' + foodId + '?')) {
-                alert('Deleted');
-            }
-        }
-    </script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../../Controller/js/Foodlist.js"></script>
 </body>
 </html>

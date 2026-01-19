@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Initialize user data array
+
 $user = [
     'user_id' => '',
     'email' => '',

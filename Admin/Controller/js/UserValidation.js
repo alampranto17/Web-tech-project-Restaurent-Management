@@ -133,7 +133,7 @@ function reset() {
     document.getElementById("UserFrom").reset();
 }
 
-function editFood(userData) {
+function editUser(userData) {
     
     const user = JSON.parse(userData);
     
@@ -142,7 +142,7 @@ function editFood(userData) {
     window.location.href = 'EditUser.php';
 }
 
-function deleteFood(userId){
+function deleteUser(userId){
 
     $.ajax({
         url:"../../Controller/php/DeleteUser.php",
