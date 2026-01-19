@@ -49,7 +49,7 @@ if(!$isLoggedIn){
         <div class="page-header">
             <h1 class="page-title">Food List</h1>
             <div class="action-buttons">
-                <button class="btn btn-add" onclick="addFood()">Add Food</button>
+               <a href="AddnewFood.php"> <button class="btn btn-add">Add Food</button></a>
             </div>
         </div>
 
@@ -74,10 +74,10 @@ $sl = 1;
 foreach ($foods as $row) {
 ?>
     <tr>
-        <td>#<?php echo $row["menu_id"]; ?></td>
+        <td><?php echo $row["menu_id"]; ?></td>
         <td><?php echo $row['item_name']; ?></td>
         <td><?php echo $row['category']; ?></td>
-        <td>$<?php echo $row['price']; ?></td>
+        <td><?php echo $row['price']; ?>tk</td>
         <td><?php echo $row['status']; ?></td>
         <td><?php echo $row['quantity']; ?></td>
         <td>

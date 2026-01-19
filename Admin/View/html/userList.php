@@ -67,12 +67,18 @@ foreach ($users as $row) {
         <td>
             <div class="action-cell">
                 <button class="btn btn-edit-row"
-                        onclick="editFood(<?php echo $row['user_id']; ?>)">
+                        onclick="editFood('<?php echo htmlspecialchars(json_encode([
+                            'user_id' => $row['user_id'],
+                            'email' => $row['email'],
+                            'name' => $row['name'],
+                            'password' => $row['password'],
+                            'role' => $row['role']
+                        ])); ?>')">
                     Edit
                 </button>
 
                 <button class="btn btn-delete"
-                        onclick="deleteFood(<?php echo $row['user_id']; ?>)">
+                        onclick="deleteFood('<?php echo htmlspecialchars($row['user_id']);?>')">
                     Delete
                 </button>
             </div>
@@ -87,5 +93,7 @@ foreach ($users as $row) {
 			</table>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="../../Controller/js/UserValidation.js"></script>
 </body>
 </html>
