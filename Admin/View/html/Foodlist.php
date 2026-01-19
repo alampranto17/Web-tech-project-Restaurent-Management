@@ -31,6 +31,9 @@ if(!$isLoggedIn){
                 <li class="nav-item">
                     <a href="userlist.php" class="nav-link">User List</a>
                 </li>
+                <li class="nav-item">
+                    <a href="saleslist.php" class="nav-link">Sales List</a>
+                </li>
                 <li class="nav-divider"></li>
                 <li class="nav-item">
                     <span class="user-info">Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Admin'); ?></span>

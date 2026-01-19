@@ -215,9 +215,10 @@ function DeleteFood($manuId)
 function getSalesList()
     {
         $con = connection();
-        $sql = "SELECT o.order_id, m.item_name, o.employee_id, o.order_date, o.total_amount
+        $sql = "SELECT o.order_id, o.menu_id, o.employee_id, o.order_date, o.total_amount,
+                       m.item_name, m.category
                 FROM orders o
-                JOIN menu m ON o.menu_id = m.menu_id
+                LEFT JOIN menu m ON o.menu_id = m.menu_id
                 ORDER BY o.order_date DESC";
 
         $sales = [];

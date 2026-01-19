@@ -34,6 +34,9 @@ if(!$isLoggedIn){
                 <li class="nav-item">
                     <a href="userlist.php" class="nav-link">User List</a>
                 </li>
+                <li class="nav-item">
+                    <a href="saleslist.php" class="nav-link">Sales List</a>
+                </li>
                 <li class="nav-divider"></li>
                 <li class="nav-item">
                     <span class="user-info">Welcome, <?php echo htmlspecialchars($_SESSION['user_email'] ?? 'Admin'); ?></span>
@@ -68,6 +71,24 @@ if(!$isLoggedIn){
                     echo count($food);
                 ?></div>
             </div>
+
+            <div class="stat-box sales">
+                <div class="stat-label">Total sales</div>
+                <div class="stat-value">
+                    <?php
+                        $sales = getSalesList();
+                        $totalOrders = count($sales);
+                        $totalAmount = 0;
+                        foreach ($sales as $sale) {
+                            $totalAmount += (float)($sale['total_amount'] ?? 0);
+                        }
+                    ?>
+                    <span><?php echo $totalOrders; ?> orders</span><br>
+                    <span>TK <?php echo number_format($totalAmount, 2); ?></span>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </body>
