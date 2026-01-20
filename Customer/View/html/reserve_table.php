@@ -25,7 +25,7 @@ include "../../Model/mydb.php";
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!--NAVBAR  -->
 <header>
     <section class="Nav">
         <div class="left-nav">
@@ -77,10 +77,10 @@ include "../../Model/mydb.php";
 
 </main>
 
-<!-- ===== FOOTER ===== -->
+<!--  FOOTER  -->
 <footer class="footer">
     <div class="footer-bottom">
-        <p>&copy; 2025 ECO Food. All rights reserved.</p>
+        <p>&copy; 2026 ECO Food. All rights reserved.</p>
     </div>
 </footer>
 

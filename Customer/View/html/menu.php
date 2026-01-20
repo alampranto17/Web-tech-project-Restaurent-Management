@@ -46,7 +46,7 @@ include "../../Model/mydb.php";
                 <th>Food Name</th>
                 <th>Category</th>
                 <th>Price</th>
-                <th>Available Qty</th>
+                <th>Available Qnty</th>
             </tr>
         </thead>
 

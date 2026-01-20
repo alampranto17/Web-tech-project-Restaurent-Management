@@ -30,7 +30,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
 } else {
     echo '<tr>
-            <td colspan="5" style="text-align:center; padding:15px;">
+            <td colspan="5" style="text-align:center; padding:16px;">
                 No matching items found
             </td>
           </tr>';

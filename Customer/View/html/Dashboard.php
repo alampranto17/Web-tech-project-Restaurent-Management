@@ -59,7 +59,7 @@ include "../../Model/mydb.php";
             <p>aabc@gmail.com</p>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 ECO Food. All rights reserved.</p>
+            <p>&copy; 2026 ECO Food. All rights reserved.</p>
         </div>
     </footer>
 </body>

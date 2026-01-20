@@ -1,6 +1,6 @@
 function searchFood() {
     let keyword = document.getElementById("searchInput").value;
-
+//   ajax part
     $.ajax({
         url: "../../Controller/php/SearchMenu.php",
         type: "POST",
