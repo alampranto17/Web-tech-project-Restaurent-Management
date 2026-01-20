@@ -1,21 +1,27 @@
 <?php
 
-include "../Model/mydb.php";
+require_once "../Model/mydb.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reserve'])){
-    
-    $date = $_POST['date'] ?? '';
-    $time = $_POST['time'] ?? '';
-    $persons = $_POST['persons'] ?? '';
-    $payment = $_POST['payment'] ?? '';
-    
-    // Validate inputs
-    if(empty($date) || empty($time) || empty($persons) || empty($payment)){
-        echo "Error: All fields are required!";
+    $date = trim($_POST['date'] ?? '');
+    $time = trim($_POST['time'] ?? '');
+    $persons = intval($_POST['persons'] ?? 0);
+    $payment = intval($_POST['payment'] ?? 0);
+
+    // Server-side validation
+    $dateValid = DateTime::createFromFormat('Y-m-d', $date);
+    $timeValid = DateTime::createFromFormat('H:i', $time);
+
+    if(!$date || !$time || !$dateValid || $dateValid->format('Y-m-d') !== $date || !$timeValid || $persons <= 0){
+        echo "<script>alert('Error: Invalid input. Please check your entries.'); window.history.back();</script>";
         exit();
     }
-    
-    // Insert reservation into database
+
+    if($payment < 0){
+        echo "<script>alert('Error: Invalid payment amount.'); window.history.back();</script>";
+        exit();
+    }
+
     if(addReservation($date, $time, $persons, $payment)){
         echo "<script>alert('Reservation confirmed successfully!'); window.location.href='../View/html/dashboard.php';</script>";
     } else {

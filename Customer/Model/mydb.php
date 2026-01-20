@@ -33,14 +33,28 @@ function addReservation($date, $time, $persons, $payment){
     $sql = "INSERT INTO reserve (`Reservation Date`, `Reservation Time`, `Number of Persons`, `Advance Payment (BDT)`) 
             VALUES ('$date', '$time', '$persons', '$payment')";
     
-    if(mysqli_query($con, $sql)){
-        mysqli_close($con);
-        return true;
-    } else {
-        echo "Error: " . mysqli_error($con);
-        mysqli_close($con);
-        return false;
-    }
+        $stmt = $con->prepare("INSERT INTO `reserve` (`Reservation Date`, `Reservation Time`, `Number of Persons`, `Advance Payment (BDT)`) VALUES (?, ?, ?, ?)");
+        if(!$stmt){
+            echo "Prepare failed: " . $con->error;
+            $con->close();
+            return false;
+        }
+
+        $persons = (int)$persons;
+        $payment = (int)$payment;
+
+        $stmt->bind_param('ssii', $date, $time, $persons, $payment);
+
+        if($stmt->execute()){
+            $stmt->close();
+            $con->close();
+            return true;
+        } else {
+            echo "Execute failed: " . $stmt->error;
+            $stmt->close();
+            $con->close();
+            return false;
+        }
 }
 
 ?>
