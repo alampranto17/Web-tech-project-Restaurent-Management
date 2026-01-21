@@ -1,5 +1,9 @@
 function searchFood() {
     let keyword = $("#searchInput").val();
+     if (keyword.length === 0) {                    
+        $("#menuBody").load("../../Controller/php/SearchMenu.php");
+        return;
+    }
 
     $.ajax({
         url: "../../Controller/php/SearchMenu.php",
