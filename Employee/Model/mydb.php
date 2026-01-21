@@ -35,17 +35,21 @@ function getAllFoods(){
 function saveOrder($menu_id, $employee_id, $total_amount) {
     $con = connection();
     $order_date = date("Y-m-d H:i:s");
-    
-    $sql = "INSERT INTO orders (menu_id, employee_id, order_date, total_amount) VALUES ('$menu_id', '$employee_id', '$order_date', '$total_amount')";
-    
-    if (mysqli_query($con, $sql)) {
-        mysqli_close($con);
-        return true;
-    } else {
-        mysqli_close($con);
-        return false;
-    }
+
+    $sql = "INSERT INTO orders (menu_id, employee_id, order_date, total_amount)
+            VALUES (?, ?, ?, ?)";
+
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("iisd", $menu_id, $employee_id, $order_date, $total_amount);
+
+    $result = $stmt->execute();
+
+    $stmt->close();
+    $con->close();
+
+    return $result;
 }
+
 
 function getOrdersToday($employee_id = null) {
     $con = connection();
