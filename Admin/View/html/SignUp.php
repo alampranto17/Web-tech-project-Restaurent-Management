@@ -12,12 +12,12 @@
         <form action="../../Controller/php/SignUpProcess.php" method="POST" onsubmit="return signupValidation()">
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" >
             </div>
             
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
                 <?php if(isset($_SESSION['emailErr'])): ?>
                     <span class="error"><?php echo $_SESSION['emailErr']; unset($_SESSION['emailErr']); ?></span>
                 <?php endif; ?>
@@ -33,7 +33,7 @@
             
             <div class="form-group">
                 <label for="confirm_password">Confirm Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
+                <input type="password" id="confirm_password" name="confirm_password">
                 <?php if(isset($_SESSION['confirm_passwordErr'])): ?>
                     <span class="error"><?php echo $_SESSION['confirm_passwordErr']; unset($_SESSION['confirm_passwordErr']); ?></span>
                 <?php endif; ?>
@@ -43,11 +43,11 @@
                 <label>Select Role</label>
                 <div class="radio-group">
                     <label class="radio-label">
-                        <input type="radio" name="role" value="customer" required>
+                        <input type="radio" name="role" value="customer">
                         Customer
                     </label>
                     <label class="radio-label">
-                        <input type="radio" name="role" value="employee" required>
+                        <input type="radio" name="role" value="employee" >
                         Employee
                     </label>
                 </div>

@@ -38,29 +38,29 @@ if (!$isLoggedIn) {
             <form action="" method="" id="foodForm">
                 <div class="inputFieldGroup">
                     <label for="food_name">Food Name *</label>
-                    <input type="text" id="food_name" name="food_name" placeholder="Enter food name" required>
+                    <input type="text" id="food_name" name="food_name" placeholder="Enter food name">
                 </div>
 
                 <div class="inputFieldGroup">
                     <label for="category">Category *</label>
-                     <input type="text" id="food_category" name="category" placeholder="Enter food category" required>
+                     <input type="text" id="food_category" name="category" placeholder="Enter food category">
                 </div>
 
                 <div class="formRow">
                     <div class="inputFieldGroup formGroupHalf">
                         <label for="price">Price (tk) *</label>
-                        <input type="number" id="price" name="price" placeholder="Enter price" min="0" step="0.01" required>
+                        <input type="number" id="price" name="price" placeholder="Enter price" min="0" step="0.01">
                     </div>
 
                     <div class="inputFieldGroup formGroupHalf">
                         <label for="quantity">Quantity *</label>
-                        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="0" step="1" required>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="0" step="1">
                     </div>
                 </div>
 
                 <div class="inputFieldGroup">
                     <label for="status">Status *</label>
-                    <select id="status" name="status" required>
+                    <select id="status" name="status">
                         <option value="available">Available</option>
                         <option value="unavailable">Unavailable</option>
                     </select>
