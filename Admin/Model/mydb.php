@@ -102,25 +102,30 @@ function getUserById($userId)
     return null;
 }
 
-function updateUser($userId, $name, $email, $password,$role)
+function updateUser($userId, $name, $email, $password, $role)
 {
     $con = connection();
-    $sql = "UPDATE users 
-                    SET name='$name', email='$email', password='$password',role='$role'
-                    WHERE user_id=$userId";
-    
-    try {
-        if (mysqli_query($con, $sql)) {
-            mysqli_close($con);
-            return true;
-        } else {
-            $error = mysqli_error($con);
-            return false;
-        }
-    } catch (Exception $e) {
-        mysqli_close($con);
+ 
+    $sql = "UPDATE users
+            SET name = ?, email = ?, password = ?, role = ?
+            WHERE user_id = ?";
+ 
+    $stmt = $con->prepare($sql);
+ 
+    if (!$stmt) {
+        $con->close();
         return false;
     }
+ 
+    // s = string, i = integer
+    $stmt->bind_param("ssssi", $name, $email, $password, $role, $userId);
+ 
+    $result = $stmt->execute();
+ 
+    $stmt->close();
+    $con->close();
+ 
+    return $result;
 }
 
 function DeleteUser($userId)
