@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
     
-    // Calculate grand total and save each cart item as an order
+   
     $grand_total = 0;
     $order_ids = [];
     
