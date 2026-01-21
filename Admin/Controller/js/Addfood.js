@@ -43,11 +43,11 @@
             return;
         }
 
-        console.log(name);
-        console.log(category);
-        console.log(price);
-        console.log(quantity);
-        console.log(status);
+        // console.log(name);
+        // console.log(category);
+        // console.log(price);
+        // console.log(quantity);
+        // console.log(status);
 
 
 

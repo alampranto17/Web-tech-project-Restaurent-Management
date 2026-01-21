@@ -27,7 +27,7 @@ function getAllFoods(){
     mysqli_close($con);
     return $foods;
 }
-
+//----//
 function addReservation($date, $time, $persons, $payment){
     $con = connection();
     $sql = "INSERT INTO reserve (`Reservation Date`, `Reservation Time`, `Number of Persons`, `Advance Payment (BDT)`) 

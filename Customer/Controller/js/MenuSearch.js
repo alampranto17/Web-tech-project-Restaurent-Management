@@ -1,5 +1,11 @@
 function searchFood() {
     let keyword = document.getElementById("searchInput").value;
+   if (keyword.length === 0) {                    
+        $("#menuBody").load("../../Controller/php/SearchMenu.php");
+        return;
+    }
+ 
+
 //   ajax part
     $.ajax({
         url: "../../Controller/php/SearchMenu.php",

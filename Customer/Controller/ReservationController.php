@@ -23,9 +23,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reserve'])){
     }
 
     if(addReservation($date, $time, $persons, $payment)){
-        echo "<script>alert('Reservation confirmed successfully!'); window.location.href='../View/html/dashboard.php';</script>";
+        echo "<script>alert('Reservation confirmed successfully!'); 
+        window.location.href='../View/html/dashboard.php';</script>";
     } else {
-        echo "<script>alert('Error: Could not save reservation. Please try again.'); window.history.back();</script>";
+        echo "<script>alert('Error: Could not save reservation. Please try again.'); 
+        window.history.back();</script>";
     }
 } else {
     echo "Invalid request!";
